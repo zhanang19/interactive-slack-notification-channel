@@ -91,7 +91,8 @@ class SlackAttachment
         return $this;
     }
 
-    public function field(Closure | string $title, string $content = ''): self
+    /** @param CLosure|string $title */
+    public function field($title, string $content = ''): self
     {
         if (is_callable($title)) {
             $callback = $title;
@@ -199,7 +200,7 @@ class SlackAttachment
         return $this;
     }
 
-    public function timestamp(\DateTimeInterface | \DateInterval | int $timestamp): self
+    public function timestamp($timestamp): self
     {
         $this->timestamp = $this->availableAt($timestamp);
 
